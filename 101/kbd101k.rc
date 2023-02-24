@@ -1,0 +1,73 @@
+#pragma code_page(65001)
+#include <winver.h>
+#include "kbd101k.h"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION       1,0,0,2023
+ PRODUCTVERSION    1,0,0,2023
+ FILEFLAGSMASK 0x3fL
+ FILEFLAGS 0x0L
+ FILEOS 0x40004L
+ FILETYPE VFT_DLL
+ FILESUBTYPE VFT2_DRV_KEYBOARD
+BEGIN
+   BLOCK "StringFileInfo"
+   BEGIN
+       BLOCK "000004B0"
+       BEGIN
+           VALUE "CompanyName",     "OpenHangulProject\0"
+#if KBD_TYPE == 10
+           VALUE "FileDescription", "KO Hangul Keyboard Layout for 101(Type A)\0"
+           VALUE "InternalName",    "kbd101k\0"
+           VALUE "OriginalFilename","kbd101k\0"
+#elif KBD_TYPE == 11
+           VALUE "FileDescription", "KO Hangul Keyboard Layout for 101(Type B)\0"
+           VALUE "InternalName",    "kbd101kb\0"
+           VALUE "OriginalFilename","kbd101kb\0"
+#elif KBD_TYPE == 12
+           VALUE "FileDescription", "KO Hangul Keyboard Layout for 101(Type C)\0"
+           VALUE "InternalName",    "kbd101kc\0"
+           VALUE "OriginalFilename","kbd101kc\0"
+#elif KBD_TYPE == 13
+           VALUE "FileDescription", "KO Hangul Keyboard Layout for 103/106\0"
+           VALUE "InternalName",    "kbd103k\0"
+           VALUE "OriginalFilename","kbd103k\0"
+#endif
+           VALUE "FileVersion",     "1.0.0.2010\0"
+           VALUE "ProductName",     "Hangul Keyboard Layout\0"
+           VALUE "Release Information","Hangul Keyboard\0"
+           VALUE "LegalCopyright",  "Copyright (c) 2023 Won-Kyu Park"
+           VALUE "ProductVersion",  "1.0.0.2023\0"
+       END
+   END
+   BLOCK "VarFileInfo"
+   BEGIN
+       VALUE "Translation", 0x0000, 0x04B0
+   END
+END
+
+STRINGTABLE DISCARDABLE
+LANGUAGE 9, 1
+BEGIN
+    1200    "ko-KR"
+END
+
+STRINGTABLE DISCARDABLE
+LANGUAGE 9, 1
+BEGIN
+#if KBD_TYPE == 10
+    1000    "한국어 - 101(Type A)"
+#elif KBD_TYPE == 11
+    1000    "한국어 - 101(Type B)"
+#elif KBD_TYPE == 12
+    1000    "한국어 - 101(Type C)"
+#elif KBD_TYPE == 13
+    1000    "한국어 - 103/106"
+#endif
+END
+
+STRINGTABLE DISCARDABLE
+LANGUAGE 9, 1
+BEGIN
+    1100    "Korean (Korea)"
+END
